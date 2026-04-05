@@ -1,0 +1,103 @@
+.breadcrumb {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.breadcrumb-link {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-sm);
+    line-height: var(--line-height-lg);
+    color: var(--color-text-body);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: color var(--motion-short) var(--motion-curve), background-color var(--motion-short) var(--motion-curve);
+
+    &:hover {
+        color: var(--color-info-600);
+        background-color: var(--color-neutral-100);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-info-500);
+        outline-offset: 2px;
+    }
+
+    &:active {
+        opacity: 0.85;
+    }
+}
+
+.breadcrumb-link-current {
+    color: var(--color-text-heading);
+    font-weight: var(--font-weight-md);
+    cursor: default;
+
+    &:hover {
+        color: var(--color-text-heading);
+        background-color: transparent;
+    }
+}
+
+.breadcrumb-link-current[type='button'] {
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-md);
+    line-height: var(--line-height-lg);
+    color: var(--color-text-heading);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color var(--motion-short) var(--motion-curve), background-color var(--motion-short) var(--motion-curve);
+
+    &:hover {
+        color: var(--color-info-600);
+        background-color: var(--color-neutral-100);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-info-500);
+        outline-offset: 2px;
+    }
+
+    &:active {
+        opacity: 0.85;
+    }
+}
+
+.breadcrumb-separator {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin: 0 var(--spacing-xs);
+    user-select: none;
+}
+
+.breadcrumb-separator-chevron,
+.breadcrumb-separator-arrow {
+    display: flex;
+    align-items: center;
+    color: var(--color-text-secondary);
+    margin: 0 var(--spacing-xs);
+}

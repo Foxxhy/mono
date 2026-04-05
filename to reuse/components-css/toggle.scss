@@ -1,0 +1,98 @@
+.toggle-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.toggle-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    cursor: pointer;
+}
+
+.toggle-wrapper:has(.toggle:disabled) {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.toggle {
+    appearance: none;
+    width: 2.75rem;
+    height: 1.5rem;
+    min-width: 2.75rem;
+    margin: 0;
+    padding: 0.125rem;
+    border: 2px solid var(--color-neutral-300);
+    border-radius: 1rem;
+    background-color: var(--color-neutral-300);
+    cursor: pointer;
+    transition: background-color var(--motion-short) var(--motion-curve), border-color var(--motion-short) var(--motion-curve), box-shadow var(--motion-short) var(--motion-curve);
+    position: relative;
+}
+
+.toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.125rem;
+    transform: translateY(-50%);
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 50%;
+    background-color: var(--color-neutral-0);
+    transition: transform var(--motion-short) var(--motion-curve);
+}
+
+.toggle:focus-visible {
+    outline: none;
+    border-color: var(--color-info-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+.toggle:checked {
+    background-color: var(--color-info-500);
+    border-color: var(--color-info-500);
+}
+
+.toggle:checked::before {
+    transform: translate(1.25rem, -50%);
+}
+
+.toggle:disabled {
+    cursor: not-allowed;
+    background-color: var(--color-neutral-200);
+    border-color: var(--color-neutral-300);
+}
+
+.toggle:disabled:checked {
+    background-color: var(--color-neutral-400);
+    border-color: var(--color-neutral-400);
+}
+
+.toggle-label {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-sm);
+    line-height: var(--line-height-xl);
+    color: var(--color-text-body);
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-wrapper:has(.toggle:disabled) .toggle-label {
+    cursor: not-allowed;
+}
+
+.toggle-hint {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-caption);
+    margin-top: var(--spacing-xs);
+}
+
+.toggle-error {
+    font-size: var(--font-size-xs);
+    color: var(--color-danger-600);
+    margin-top: var(--spacing-xs);
+}

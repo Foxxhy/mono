@@ -1,0 +1,23 @@
+{
+  "name": "design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Design system SCSS",
+  "style": "dist/design-system.css",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "sass src/index.scss dist/design-system.css --load-path=src --style=compressed --no-source-map",
+    "dev": "sass --watch src/index.scss dist/design-system.css --load-path=src --style=expanded --source-map",
+    "lint": "stylelint \"src/**/*.scss\"",
+    "lint-fix": "stylelint \"src/**/*.scss\" --fix"
+  },
+  "devDependencies": {
+    "@stylistic/stylelint-plugin": "^5.1.0",
+    "sass": "^1.85.0",
+    "stylelint": "^17.6.0",
+    "stylelint-config-standard-scss": "^17.0.0"
+  }
+}

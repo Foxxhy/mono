@@ -1,0 +1,36 @@
+.divider {
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: var(--color-neutral-300);
+    margin: 0;
+}
+
+.divider-vertical {
+    width: 1px;
+    height: 100%;
+    border: none;
+    background-color: var(--color-neutral-300);
+    margin: 0;
+}
+
+.divider-sm {
+    margin: var(--spacing-sm) 0;
+}
+
+.divider-md {
+    margin: var(--spacing-md) 0;
+}
+
+.divider-lg {
+    margin: var(--spacing-lg) 0;
+}
+
+.divider-xl {
+    margin: var(--spacing-xl) 0;
+}
+
+.divider-bold {
+    height: 2px;
+    background-color: var(--color-neutral-400);
+}

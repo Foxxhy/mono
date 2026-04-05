@@ -1,0 +1,56 @@
+.link {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-sm);
+    line-height: var(--line-height-xl);
+    margin: var(--spacing-0);
+    color: var(--color-text-body);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: transparent;
+    transition: color var(--motion-short) var(--motion-curve), text-decoration-color var(--motion-short) var(--motion-curve), opacity var(--motion-short) var(--motion-curve);
+}
+
+.link:focus-visible {
+    outline: 2px solid currentcolor;
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+}
+
+.link svg {
+    width: 1em;
+    height: 1em;
+}
+
+.link-neutral {
+    color: var(--color-text-body);
+}
+
+.link-neutral:hover,
+.link-neutral:focus-visible {
+    color: var(--color-text-heading);
+    text-decoration-color: currentcolor;
+}
+
+.link-neutral:active {
+    opacity: 0.85;
+}
+
+.link-primary {
+    color: var(--color-text-info);
+}
+
+.link-primary:hover,
+.link-primary:focus-visible {
+    color: var(--color-info-600);
+    text-decoration-color: currentcolor;
+}
+
+.link-primary:active {
+    opacity: 0.9;
+}
+

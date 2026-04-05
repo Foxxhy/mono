@@ -82,6 +82,10 @@ out
 .nuxt
 dist
 
+# Exception : CSS compilé du design-system (règle globale `dist` ci-dessus)
+!packages/design-system/dist/
+!packages/design-system/dist/**
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and not Next.js
