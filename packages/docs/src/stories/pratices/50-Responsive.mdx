@@ -1,0 +1,144 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ResponsiveRowToColumnDemo } from '../../docs-demos/practices-demos';
+import { TokenTable } from '../../docs-demos/foundation-demos';
+
+<Meta title="Pratiques/Responsive" />
+
+# Responsive
+
+Le responsive du design system suit une règle simple : **mobile d’abord**, puis enrichissement progressif. Les blocs sont en colonne par défaut, et passent en ligne quand l’espace le permet.
+
+## Sommaire
+
+- [Seuils de référence](#seuils)
+- [Pattern row → column](#pattern)
+- [Structure globale](#structure)
+- [Texte et espacement responsive](#texte)
+- [Recettes copiables](#recettes)
+
+<h2 id="seuils">Seuils de référence</h2>
+
+<TokenTable
+  headers={['Token', 'Usage recommandé']}
+  rows={[
+    { name: '--breakpoint-sm: 365px', preview: 'Très petit mobile : vérifier les libellés, boutons et colonnes étroites.' },
+    { name: '--breakpoint-md: 992px', preview: 'Seuil principal pour passer d’une colonne mobile à une ligne desktop.' },
+    { name: '--breakpoint-lg: 1200px', preview: 'Large écran : limiter la largeur, ne pas étirer les textes.' },
+    { name: '--container-max: 1100px', preview: 'Largeur maximale de contenu courant.' },
+  ]}
+/>
+
+Les media queries CSS ne peuvent pas utiliser directement des custom properties (`var(--breakpoint-md)`). Dans les snippets CSS, reprenez donc la valeur `992px` et gardez le commentaire pour rappeler le token source.
+
+<h2 id="pattern">Pattern row → column</h2>
+
+Par défaut, les enfants s’empilent. À partir de `992px`, ils peuvent passer en ligne, avec un `gap` issu des tokens.
+
+<ResponsiveRowToColumnDemo />
+
+```css
+.layout-split {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Même valeur que --breakpoint-md */
+@media (min-width: 992px) {
+  .layout-split {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+```
+
+```html
+<section class="layout-split">
+  <article class="u-bg-neutral-100 u-p-xl">
+    <h2 class="heading-lg">Contenu principal</h2>
+    <p class="body-md u-mt-md">Information prioritaire.</p>
+  </article>
+
+  <aside class="u-bg-neutral-100 u-p-xl">
+    <h3 class="heading-md">Complément</h3>
+    <p class="body-sm u-mt-md">Détail utile mais secondaire.</p>
+  </aside>
+</section>
+```
+
+<h2 id="structure">Structure globale</h2>
+
+Sur mobile, la page doit rester lisible avec des zones courtes. Sur desktop, limitez la largeur plutôt que d’étirer le texte.
+
+```html
+<main class="u-px-xl u-py-3xl" style="max-width: var(--container-max); margin: 0 auto;">
+  <section class="u-mb-3xl">
+    <h1 class="heading-2xl">Titre</h1>
+    <p class="body-lg u-mt-md">Introduction courte.</p>
+  </section>
+
+  <section class="layout-split">
+    <article>Contenu principal</article>
+    <aside>Contenu complémentaire</aside>
+  </section>
+</main>
+```
+
+<h2 id="texte">Texte et espacement responsive</h2>
+
+- Gardez les paragraphes longs sur une largeur raisonnable (souvent `max-width: 720px`).
+- Évitez trois colonnes sur mobile ; utilisez une seule colonne puis deux ou trois colonnes au-dessus de `992px`.
+- Ne réduisez pas la taille du texte pour faire entrer plus de contenu : changez plutôt la structure.
+
+<h2 id="recettes">Recettes copiables</h2>
+
+### Grille de cartes
+
+```css
+.card-grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+/* Même valeur que --breakpoint-md */
+@media (min-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+```
+
+```html
+<section class="card-grid">
+  <article class="u-bg-neutral-100 u-p-xl">
+    <h3 class="heading-md">Carte 1</h3>
+    <p class="body-sm u-mt-md">Contenu de la carte.</p>
+  </article>
+  <article class="u-bg-neutral-100 u-p-xl">
+    <h3 class="heading-md">Carte 2</h3>
+    <p class="body-sm u-mt-md">Contenu de la carte.</p>
+  </article>
+  <article class="u-bg-neutral-100 u-p-xl">
+    <h3 class="heading-md">Carte 3</h3>
+    <p class="body-sm u-mt-md">Contenu de la carte.</p>
+  </article>
+</section>
+```
+
+### Bloc média + texte
+
+```css
+.media-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+/* Même valeur que --breakpoint-md */
+@media (min-width: 992px) {
+  .media-text {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+```

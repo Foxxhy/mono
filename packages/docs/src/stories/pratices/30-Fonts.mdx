@@ -1,0 +1,110 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TokenTable } from '../../docs-demos/foundation-demos';
+
+<Meta title="Pratiques/Typographie" />
+
+# Typographie
+
+Les classes typographiques du design system donnent la hiérarchie de lecture. Utilisez-les pour décrire le rôle du texte, pas sa taille visuelle uniquement.
+
+## Sommaire
+
+- [Titres](#titres)
+- [Contenu courant](#contenu-courant)
+- [Labels, overline et légendes](#labels)
+- [États textuels](#états)
+- [Recettes copiables](#recettes)
+
+<h2 id="titres">Titres</h2>
+
+Les titres utilisent `font-family-primary`, `--color-text-heading` et une échelle de `.heading-2xl` à `.heading-xs`.
+
+<TokenTable
+  headers={['Usage', 'Classe recommandée']}
+  rows={[
+    { name: 'Titre de page / hero', preview: '.heading-2xl' },
+    { name: 'Titre de grande section', preview: '.heading-xl' },
+    { name: 'Titre de bloc ou carte importante', preview: '.heading-lg' },
+    { name: 'Titre secondaire / sous-section', preview: '.heading-md' },
+    { name: 'Titre compact', preview: '.heading-sm' },
+    { name: 'Titre très dense ou label structurant', preview: '.heading-xs' },
+  ]}
+/>
+
+```html
+<header>
+  <p class="overline">Produit</p>
+  <h1 class="heading-2xl">Tableau de bord</h1>
+  <p class="body-lg u-mt-md">Suivez les indicateurs clés en un coup d’œil.</p>
+</header>
+```
+
+<h2 id="contenu-courant">Contenu courant</h2>
+
+Le corps de texte doit rester sobre et lisible. `body-md` est le choix par défaut ; `body-lg` sert aux introductions, `body-sm` aux contenus denses, `body-xs` aux micro-informations.
+
+<TokenTable
+  headers={['Usage', 'Classe recommandée']}
+  rows={[
+    { name: 'Chapô / phrase d’introduction', preview: '.body-lg' },
+    { name: 'Paragraphe principal', preview: '.body-md' },
+    { name: 'Texte dense, tableau, carte compacte', preview: '.body-sm' },
+    { name: 'Microcopy ou détail secondaire très court', preview: '.body-xs' },
+  ]}
+/>
+
+```html
+<article>
+  <h2 class="heading-xl">Analyse</h2>
+  <p class="body-md u-mt-md">
+    Le texte courant porte l’information principale et évite les couleurs d’état.
+  </p>
+  <p class="body-sm u-mt-md">
+    Le texte dense complète le paragraphe sans changer la hiérarchie globale.
+  </p>
+</article>
+```
+
+<h2 id="labels">Labels, overline et légendes</h2>
+
+Utilisez `.label` pour un libellé de champ ou de metadata courte, `.overline` pour un pré-titre de section, et `.caption` pour les détails complémentaires.
+
+```html
+<div>
+  <p class="overline">Facturation</p>
+  <h2 class="heading-lg">Mode de paiement</h2>
+  <p class="caption u-mt-md">Dernière vérification : aujourd’hui à 09:12.</p>
+</div>
+```
+
+<h2 id="états">États textuels</h2>
+
+Les classes `.body-sm-warning` et `.body-sm-error` sont adaptées aux messages proches d’un champ, d’une action ou d’un état système. Gardez-les courtes.
+
+```html
+<label class="label" for="email">Email</label>
+<input id="email" aria-describedby="email-error" />
+<p id="email-error" class="body-sm-error u-mt-md">Adresse email invalide.</p>
+```
+
+<h2 id="recettes">Recettes copiables</h2>
+
+### En-tête de page
+
+```html
+<section class="u-py-3xl">
+  <p class="overline">Catégorie</p>
+  <h1 class="heading-2xl">Titre de page</h1>
+  <p class="body-lg u-mt-md">Résumé clair en une ou deux phrases maximum.</p>
+</section>
+```
+
+### Carte de contenu
+
+```html
+<article class="u-bg-neutral-100 u-p-xl">
+  <h3 class="heading-md">Titre de carte</h3>
+  <p class="body-sm u-mt-md">Description compacte et directement actionnable.</p>
+  <p class="caption u-mt-md">Détail complémentaire.</p>
+</article>
+```

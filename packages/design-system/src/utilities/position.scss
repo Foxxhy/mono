@@ -1,0 +1,86 @@
+.u-static {
+    position: static;
+}
+
+.u-relative {
+    position: relative;
+}
+
+.u-absolute {
+    position: absolute;
+}
+
+.u-fixed {
+    position: fixed;
+}
+
+.u-sticky {
+    position: sticky;
+}
+
+.u-inset-0 {
+    inset: 0;
+}
+
+.u-top-0 {
+    top: 0;
+}
+
+.u-right-0 {
+    right: 0;
+}
+
+.u-bottom-0 {
+    bottom: 0;
+}
+
+.u-left-0 {
+    left: 0;
+}
+
+.u-inset-x-0 {
+    left: 0;
+    right: 0;
+}
+
+.u-inset-y-0 {
+    top: 0;
+    bottom: 0;
+}
+
+.u-translate-center {
+    transform: translate(-50%, -50%);
+}
+
+.u-z-0 {
+    z-index: 0;
+}
+
+.u-z-xs {
+    z-index: var(--z-index-xs);
+}
+
+.u-z-sm {
+    z-index: var(--z-index-sm);
+}
+
+.u-z-md {
+    z-index: var(--z-index-md);
+}
+
+.u-z-lg {
+    z-index: var(--z-index-lg);
+}
+
+.u-z-xl {
+    z-index: var(--z-index-xl);
+}
+
+.u-z-2xl {
+    z-index: var(--z-index-2xl);
+}
+
+.u-z-3xl {
+    z-index: var(--z-index-3xl);
+}
+

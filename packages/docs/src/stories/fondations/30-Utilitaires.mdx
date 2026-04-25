@@ -1,0 +1,97 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { FlexDemo, TokenTable, UtilityGrid } from '../../docs-demos/foundation-demos';
+
+<Meta title="Fondations/Utilities" />
+
+# Utilitaires (`u-*`)
+
+Ces classes sont générées à partir de `packages/design-system/src/utilities/`. Le preview Storybook charge le **`dist/design-system.css`**, donc le même enchaînement **compilé** (tokens, reset, utilitaires, composants) que le package.
+
+**Convention** : préfixe `u-`, sémantique **couleurs** (`u-bg-…`, `u-text-…`, `u-border-…`) ou **mise en page** (espacement, flex, position).
+
+## Sommaire
+
+- [Couleurs (fond, texte, bordure)](#couleurs)
+- [Espacements (margin, padding, gap)](#espacements)
+- [Flex & alignement](#flex)
+- [Position & z-index utilitaires](#position)
+- [Voir aussi](#voir-aussi)
+
+<h2 id="couleurs">Couleurs (fond, texte, bordure)</h2>
+
+### Fonds (extraits de la palette)
+
+<UtilityGrid
+  items={[
+    { className: 'u-bg-primary-500', children: <span className="u-text-neutral-0" style={{ fontSize: 12 }}>Fond</span> },
+    { className: 'u-bg-neutral-100' },
+    { className: 'u-bg-danger-500', children: <span className="u-text-neutral-0" style={{ fontSize: 12 }}>Danger</span> },
+  ]}
+/>
+
+Toutes les rampes 0–800 existent en `u-bg-*` pour *neutral, primary, accent, danger, warning, success, info* (même noms de rampes que sur la page *Design tokens*).
+
+### Texte sémantique (échantillon)
+
+<UtilityGrid
+  items={[
+    { className: 'u-text-primary-500', children: 'Primaire' },
+    { className: 'u-text-danger-500', children: 'Danger' },
+    { className: 'u-text-success-500', children: 'Succès' },
+    { className: 'u-text-neutral-800', children: 'Neutre 800' },
+  ]}
+/>
+
+### Bordure (1px) — classes exposées
+
+`u-border-neutral-200` … `u-border-success-500` (voir le fichier `utilities/color.scss` pour la liste exacte, alignée sur les tokens sémantiques de bordure).
+
+<h2 id="espacements">Espacements (margin, padding, gap)</h2>
+
+Les barres s’appliquent **via** les tokens d’espacement. Exemples de classes (liste non exhaustive) :
+
+<TokenTable
+  headers={['Exemples de classes', 'Rôle']}
+  rows={[
+    { name: 'u-m-xs → u-m-3xl, u-mt-*, u-mb-*, u-mx-auto', preview: 'Marges toutes directions / axes' },
+    { name: 'u-p-sm', preview: 'Padding latéral homogène' },
+    { name: 'u-px-md, u-py-xl, u-pt-2xl, …', preview: 'Padding par axe' },
+    { name: 'u-gap-sm, u-gap-md, …, u-gap-3xl', preview: 'Gap flex/grid' },
+  ]}
+/>
+
+L’intégralité des utilitaires d’espacement est définie dans `utilities/spacing.scss` (noms miroir des *spacing tokens*).
+
+<h2 id="flex">Flex & alignement</h2>
+
+<TokenTable
+  headers={['Classe (extrait)', 'Rôle']}
+  rows={[
+    { name: 'u-flex, u-inline-flex, u-flex-row, u-flex-column, u-flex-wrap, …', preview: 'Conteneur flex' },
+    { name: 'u-justify-center, u-justify-between, … u-items-center, … u-content-*, u-self-*', preview: 'Alignement sur les axes' },
+    { name: 'u-flex-1, u-flex-none, u-flex-grow-*, u-flex-shrink-*', preview: 'Élasticité' },
+  ]}
+/>
+
+<FlexDemo className="u-flex u-justify-center u-items-center" caption="Contenu centré" />
+<FlexDemo className="u-flex u-justify-between u-items-stretch" caption="Espace libre sur l’axe principal" />
+
+<h2 id="position">Position & z-index utilitaires</h2>
+
+<TokenTable
+  headers={['Groupe', 'Exemples']}
+  rows={[
+    { name: 'Mode de position', preview: 'u-static, u-relative, u-absolute, u-fixed, u-sticky' },
+    { name: 'Ancrages & plein plan', preview: 'u-inset-0, u-top-0, u-right-0, u-bottom-0, u-left-0, u-inset-x-0, u-inset-y-0' },
+    { name: 'Centrage abstrait', preview: 'u-translate-center' },
+    { name: 'Niveaux de z', preview: 'u-z-0, u-z-xs, …, u-z-3xl' },
+  ]}
+/>
+
+Les valeurs `u-z-*` réutilisent les mêmes échelles que les tokens `z-index` (voir *Design tokens*).
+
+<h2 id="voir-aussi">Voir aussi</h2>
+
+- [Design tokens](?path=/docs/fondations-design-tokens--docs)
+- [Reset](?path=/docs/fondations-reset--docs)
+- [Introduction](?path=/docs/fondations-introduction--docs)

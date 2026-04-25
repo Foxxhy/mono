@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Select" />
+
+# Select
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [HTML minimal copiable](#html-minimal)
+- [Variantes](#variantes)
+- [RGAA et accessibilité](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Composant de la famille **Forms**. Utilisez les classes du bundle `dist/design-system.css` et gardez le HTML natif autant que possible.
+
+<h2 id="html-minimal">HTML minimal copiable</h2>
+
+```html
+<div class="select-group">
+  <label class="select-label" for="country">Pays</label>
+  <span class="select-wrapper"><select id="country" class="select select-neutral"><option>France</option></select></span>
+</div>
+```
+
+<h2 id="variantes">Variantes</h2>
+
+Les variations visuelles sont disponibles dans l’onglet stories de cette page (`Components/Select`). Les classes proviennent de `packages/design-system/src/components/select.scss`.
+
+<h2 id="rgaa">RGAA et accessibilité</h2>
+
+- Préférer le `<select>` natif. Pour une erreur, associer `aria-invalid` et `aria-describedby`.
+- Conserver un ordre de focus logique et visible.
+- Ne pas transmettre une information uniquement par la couleur.
+- Préférer les éléments HTML natifs avant d’ajouter des rôles ARIA.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Remplacer un élément natif interactif par une `div` cliquable.
+- Supprimer le focus visible ou le libellé accessible.
+- Copier les couleurs hexadécimales : utiliser les classes et tokens du design system.

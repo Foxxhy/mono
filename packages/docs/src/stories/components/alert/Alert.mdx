@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Alert" />
+
+# Alert
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [HTML minimal copiable](#html-minimal)
+- [Variantes](#variantes)
+- [RGAA et accessibilité](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Composant de la famille **Feedback**. Utilisez les classes du bundle `dist/design-system.css` et gardez le HTML natif autant que possible.
+
+<h2 id="html-minimal">HTML minimal copiable</h2>
+
+```html
+<div class="alert alert-info" role="status">
+  <span class="alert-icon" aria-hidden="true">i</span>
+  <div class="alert-content">
+    <p class="alert-title">Information</p>
+    <p class="alert-description">Message court, explicite et actionnable.</p>
+  </div>
+</div>
+```
+
+<h2 id="variantes">Variantes</h2>
+
+Les variations visuelles sont disponibles dans l’onglet stories de cette page (`Components/Alert`). Les classes proviennent de `packages/design-system/src/components/alert.scss`.
+
+<h2 id="rgaa">RGAA et accessibilité</h2>
+
+- Utiliser `role="status"` pour une information non urgente et `role="alert"` uniquement pour une erreur ou un risque immédiat.
+- Conserver un ordre de focus logique et visible.
+- Ne pas transmettre une information uniquement par la couleur.
+- Préférer les éléments HTML natifs avant d’ajouter des rôles ARIA.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Remplacer un élément natif interactif par une `div` cliquable.
+- Supprimer le focus visible ou le libellé accessible.
+- Copier les couleurs hexadécimales : utiliser les classes et tokens du design system.

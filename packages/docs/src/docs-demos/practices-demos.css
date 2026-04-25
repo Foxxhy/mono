@@ -1,0 +1,48 @@
+.practice-demo-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+.practice-demo-card {
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--spacing-md);
+    padding: var(--spacing-xl);
+}
+
+.practice-demo-card--neutral {
+    background: var(--color-neutral-100);
+}
+
+.practice-demo-card--primary {
+    background: var(--background-primary-0);
+}
+
+.practice-demo-card--info {
+    background: var(--background-info-0);
+}
+
+.practice-demo-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+}
+
+/* Same value as --breakpoint-md. Custom properties cannot be used in media queries. */
+@media (min-width: 992px) {
+    .practice-demo-stack {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
+.practice-demo-stack > * {
+    flex: 1;
+}
+
+.practice-copy-example {
+    display: grid;
+    gap: var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}

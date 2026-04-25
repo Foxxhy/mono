@@ -1,0 +1,93 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Patterns/Navigation" />
+
+# Navigation agnostique
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [Navigation principale](#principale)
+- [Menu mobile](#mobile)
+- [Exemples d’usage](#exemples)
+- [RGAA](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Utilisez ce pattern pour structurer les liens de navigation persistants : navigation principale, navigation mobile, pied de page ou liens de section. Chaque zone doit avoir un nom accessible distinct.
+
+<h2 id="principale">Navigation principale</h2>
+
+```html
+<nav aria-label="Navigation principale">
+  <ul class="header-nav-list header-nav-list-row">
+    <li><a class="header-nav-link" aria-current="page" href="/">Accueil</a></li>
+    <li><a class="header-nav-link" href="/docs">Documentation</a></li>
+  </ul>
+</nav>
+```
+
+<h2 id="mobile">Menu mobile</h2>
+
+```html
+<button type="button" class="header-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
+  <span class="header-menu-toggle-icon" aria-hidden="true">
+    <span class="header-menu-toggle-line"></span>
+    <span class="header-menu-toggle-line"></span>
+    <span class="header-menu-toggle-line"></span>
+  </span>
+</button>
+<nav id="mobile-nav" hidden aria-label="Navigation mobile">
+  <ul class="header-nav-list"><li><a class="header-nav-link" href="/">Accueil</a></li></ul>
+</nav>
+```
+
+```js
+const button = document.querySelector('[aria-controls="mobile-nav"]');
+const nav = document.querySelector('#mobile-nav');
+
+button.addEventListener('click', () => {
+  const isOpen = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', String(!isOpen));
+  nav.hidden = isOpen;
+});
+```
+
+<h2 id="exemples">Exemples d’usage</h2>
+
+### Navigation de footer
+
+```html
+<footer class="footer">
+  <nav class="footer-links footer-links-row" aria-label="Liens de pied de page">
+    <a class="footer-link" href="/accessibilite">Accessibilité</a>
+    <a class="footer-link" href="/contact">Contact</a>
+  </nav>
+</footer>
+```
+
+### Navigation secondaire
+
+```html
+<nav aria-label="Navigation de section">
+  <ul class="header-nav-list header-nav-list-row">
+    <li><a class="header-nav-link" href="#usage">Usage</a></li>
+    <li><a class="header-nav-link" href="#rgaa">RGAA</a></li>
+  </ul>
+</nav>
+```
+
+<h2 id="rgaa">RGAA</h2>
+
+- Chaque zone de navigation doit avoir un nom accessible distinct.
+- Le lien courant utilise `aria-current="page"`.
+- Le bouton menu maintient `aria-expanded` synchronisé avec l’affichage.
+- Les liens doivent avoir un intitulé compréhensible hors contexte.
+- L’ordre du focus doit suivre l’ordre visuel.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Multiplier plusieurs `<nav>` sans `aria-label` distinct.
+- Cacher un menu seulement visuellement alors qu’il reste focusable.
+- Utiliser un bouton pour naviguer vers une URL.

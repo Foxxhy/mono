@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Introduction" />
+
+# Documentation des composants
+
+Cette section documente les composants exposés par `dist/design-system.css`. Chaque composant possède une story de variations visuelles et une page MDX orientée HTML/CSS copiable, RGAA et patterns agnostiques.
+
+## Sommaire
+
+- [Organisation](#organisation)
+- [Composants existants](#composants)
+- [Patterns agnostiques](#patterns)
+- [Règle RGAA commune](#rgaa)
+
+<h2 id="organisation">Organisation</h2>
+
+- Les stories montrent les variations et états visuels.
+- Les MDX donnent le markup HTML minimal, les classes à copier et les obligations d’accessibilité.
+- Les snippets restent agnostiques : HTML natif en priorité, JavaScript uniquement pour les comportements nécessaires.
+
+<h2 id="composants">Composants existants</h2>
+
+- Actions : [Button](?path=/docs/components-button--docs), [Link](?path=/docs/components-link--docs)
+- Feedback : [Alert](?path=/docs/components-alert--docs), [Badge](?path=/docs/components-badge--docs), [Toast](?path=/docs/components-toast--docs), [Spinner](?path=/docs/components-spinner--docs)
+- Formulaires : [Input](?path=/docs/components-input--docs), [Select](?path=/docs/components-select--docs), [Checkbox](?path=/docs/components-checkbox--docs), [Radio](?path=/docs/components-radio--docs), [Toggle](?path=/docs/components-toggle--docs)
+- Structure : [Card](?path=/docs/components-card--docs), [Divider](?path=/docs/components-divider--docs), [Table](?path=/docs/components-table--docs), [Typo](?path=/docs/components-typo--docs)
+- Navigation : [Breadcrumb](?path=/docs/components-breadcrumb--docs), [Header](?path=/docs/components-header--docs), [Footer](?path=/docs/components-footer--docs)
+- Overlay : [Modal](?path=/docs/components-modal--docs)
+
+<h2 id="patterns">Patterns agnostiques</h2>
+
+- [Accordion / disclosure](?path=/docs/components-patterns-accordion--docs)
+- [Dialog natif](?path=/docs/components-patterns-dialog--docs)
+- [Navigation](?path=/docs/components-patterns-navigation--docs)
+- [Live region](?path=/docs/components-patterns-liveregion--docs)
+
+<h2 id="rgaa">Règle RGAA commune</h2>
+
+Un composant est utilisable seulement si son nom accessible, son rôle, son état et son comportement clavier sont corrects. Les classes CSS ne remplacent jamais les attributs HTML/ARIA nécessaires.

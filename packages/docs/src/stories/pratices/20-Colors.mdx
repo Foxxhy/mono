@@ -1,0 +1,91 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TextHierarchyDemo } from '../../docs-demos/practices-demos';
+import { TokenTable } from '../../docs-demos/foundation-demos';
+
+<Meta title="Pratiques/Couleurs de texte" />
+
+# Couleurs de texte
+
+La couleur de texte doit traduire la hiérarchie : **principal**, **courant**, **complémentaire**, **état**. Évitez de choisir une couleur pour décorer un texte ; choisissez-la pour clarifier son rôle.
+
+## Sommaire
+
+- [Hiérarchie recommandée](#hiérarchie)
+- [Mettre en avant un contenu](#mise-en-avant)
+- [Contenu moyen et complémentaire](#contenu-moyen)
+- [États et messages](#états)
+- [Exemples copiables](#exemples)
+
+<h2 id="hiérarchie">Hiérarchie recommandée</h2>
+
+<TokenTable
+  headers={['Rôle', 'Classe / variable']}
+  rows={[
+    { name: 'Titre principal', preview: '.heading-* → --color-text-heading' },
+    { name: 'Texte courant', preview: '.body-md / .body-sm → --color-text-body' },
+    { name: 'Complément, légende', preview: '.caption → --color-text-caption' },
+    { name: 'Libellé ou contexte court', preview: '.label / .overline → --color-text-label / overline' },
+    { name: 'Accent positif de marque', preview: '--color-text-primary / --color-text-accent' },
+    { name: 'État', preview: '--color-text-danger / warning / success / info' },
+  ]}
+/>
+
+<TextHierarchyDemo />
+
+<h2 id="mise-en-avant">Mettre en avant un contenu</h2>
+
+Utilisez `--color-text-primary` ou `--color-text-accent` pour attirer l’attention sur un mot, un statut de progression ou un lien important. Ne l’utilisez pas pour tout un paragraphe long.
+
+```html
+<p class="body-md">
+  Le forfait inclut <strong style="color: var(--color-text-primary)">3 espaces actifs</strong>
+  et une synchronisation quotidienne.
+</p>
+```
+
+```html
+<a class="body-md" style="color: var(--color-text-primary)" href="/settings">
+  Configurer les préférences
+</a>
+```
+
+<h2 id="contenu-moyen">Contenu moyen et complémentaire</h2>
+
+Le contenu courant doit rester en `.body-md` ou `.body-sm`. Le contenu complémentaire (aide, metadata, note secondaire) doit être visuellement plus faible : `.caption`, `.label`, `.overline`, ou `--color-text-label`.
+
+```html
+<article>
+  <h2 class="heading-lg">Rapport mensuel</h2>
+  <p class="body-md u-mt-md">Résumé des indicateurs principaux.</p>
+  <p class="caption u-mt-md">Mis à jour il y a 12 minutes.</p>
+</article>
+```
+
+<h2 id="états">États et messages</h2>
+
+Les couleurs d’état doivent rester fonctionnelles. `danger` signale une erreur ou un risque, `warning` une attention, `success` une validation et `info` une aide.
+
+```html
+<p class="body-sm-error">Impossible d’enregistrer : un champ requis est manquant.</p>
+<p class="body-sm-warning u-mt-md">Attention : cette action modifiera les accès.</p>
+```
+
+<h2 id="exemples">Exemples copiables</h2>
+
+```html
+<div class="u-p-xl u-bg-neutral-100">
+  <p class="label">Résumé</p>
+  <h3 class="heading-md u-mt-md">Contenu prioritaire</h3>
+  <p class="body-sm u-mt-md">
+    Utilisez une couleur sobre pour la lecture et une couleur sémantique seulement pour signaler.
+  </p>
+  <p class="caption u-mt-md">Détail complémentaire ou contexte temporel.</p>
+</div>
+```
+
+```html
+<p class="body-md">
+  Statut :
+  <span style="color: var(--color-text-success)">opération terminée</span>
+</p>
+```

@@ -80,6 +80,9 @@
     --color-text-warning: var(--color-warning-500);
     --color-text-success: var(--color-success-500);
     --color-text-info: var(--color-info-500);
+    --color-bg: var(--color-neutral-0);
+    --color-text: var(--color-text-body);
+    --color-focus: var(--color-primary-500);
     --border-color-neutral-0: var(--color-neutral-0);
     --border-color-primary-0: var(--color-primary-0);
     --border-color-accent-0: var(--color-accent-0);
@@ -113,6 +116,8 @@
     --font-weight-lg: 700;
     --shadow-sm: 0 1px 2px rgb(16 24 40 / 4%), 0 1px 3px rgb(16 24 40 / 6%);
     --shadow-md: 0 4px 10px rgb(16 24 40 / 6%);
+    --shadow-lg: 0 8px 24px rgb(16 24 40 / 8%), 0 4px 8px rgb(16 24 40 / 4%);
+    --shadow-xl: 0 24px 48px rgb(16 24 40 / 10%), 0 12px 20px rgb(16 24 40 / 6%);
     --z-index-xs: 10;
     --z-index-sm: 20;
     --z-index-md: 30;

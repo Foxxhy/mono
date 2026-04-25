@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Pratiques/Introduction" />
+
+# Bonnes pratiques de design
+
+Cette section transforme les fondations du design system en décisions concrètes : quel fond choisir, quelle couleur de texte utiliser, comment hiérarchiser la typographie, comment espacer une page et quand passer d’une ligne à une colonne.
+
+Les exemples sont pensés pour être copiables. Ils utilisent l’artefact `dist/design-system.css` chargé par Storybook, donc les mêmes classes et variables qu’un consommateur du package.
+
+## Sommaire
+
+- [Quand utiliser cette section](#quand-utiliser-cette-section)
+- [Pages disponibles](#pages-disponibles)
+- [Règle de base](#règle-de-base)
+- [Exemple de squelette réutilisable](#squelette)
+- [Lien avec les fondations](#fondations)
+
+<h2 id="quand-utiliser-cette-section">Quand utiliser cette section</h2>
+
+Utilisez **Pratiques** quand vous devez composer une interface avec le design system, pas seulement connaître la liste des tokens. Les pages ci-dessous donnent des choix par situation : contenu principal, contenu complémentaire, état d’attention, bloc mis en avant, article, formulaire, structure responsive.
+
+<h2 id="pages-disponibles">Pages disponibles</h2>
+
+- [Arrière-plans](?path=/docs/pratiques-arrière-plans--docs) : choisir entre fond de page, bloc neutre, bloc informatif ou bloc mis en avant.
+- [Couleurs de texte](?path=/docs/pratiques-couleurs-de-texte--docs) : donner la bonne importance au contenu sans multiplier les couleurs.
+- [Typographie](?path=/docs/pratiques-typographie--docs) : choisir les classes `.heading-*`, `.body-*`, `.caption`, `.label`, `.overline`.
+- [Espacements](?path=/docs/pratiques-espacements--docs) : structurer page, section, paragraphe et formulaire.
+- [Responsive](?path=/docs/pratiques-responsive--docs) : appliquer les seuils et le pattern mobile-first ligne/colonne.
+
+<h2 id="règle-de-base">Règle de base</h2>
+
+Commencez par la sémantique, puis choisissez la classe. Par exemple : « ce bloc est-il principal ou complémentaire ? », « ce texte est-il un titre, une aide, une erreur ? », « ce groupe doit-il rester en colonne sur mobile ? ». Les classes du design system ne doivent pas être utilisées comme simple décoration.
+
+<h2 id="squelette">Exemple de squelette réutilisable</h2>
+
+```html
+<main class="u-bg-neutral-0">
+  <section class="u-px-xl u-py-3xl">
+    <p class="overline">Section</p>
+    <h1 class="heading-2xl">Titre de page</h1>
+    <p class="body-lg u-mt-md">Résumé court qui explique la valeur du contenu.</p>
+  </section>
+
+  <section class="u-px-xl u-py-2xl">
+    <h2 class="heading-xl">Contenu principal</h2>
+    <p class="body-md u-mt-md">Texte courant, sobre, lisible et stable.</p>
+  </section>
+</main>
+```
+
+<h2 id="fondations">Lien avec les fondations</h2>
+
+Les pages **Pratiques** complètent les pages **Fondations** :
+
+- [Design tokens](?path=/docs/fondations-design-tokens--docs) : liste et aperçu des variables.
+- [Reset](?path=/docs/fondations-reset--docs) : base globale appliquée par le bundle.
+- [Utilitaires](?path=/docs/fondations-utilitaires--docs) : classes `u-*` disponibles.

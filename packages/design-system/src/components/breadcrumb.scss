@@ -27,7 +27,7 @@
     color: var(--color-text-body);
     text-decoration: none;
     padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--radius-sm);
+    border-radius: var(--spacing-sm);
     transition: color var(--motion-short) var(--motion-curve), background-color var(--motion-short) var(--motion-curve);
 
     &:hover {
@@ -67,7 +67,7 @@
     line-height: var(--line-height-lg);
     color: var(--color-text-heading);
     text-decoration: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--spacing-sm);
     transition: color var(--motion-short) var(--motion-curve), background-color var(--motion-short) var(--motion-curve);
 
     &:hover {
@@ -88,7 +88,7 @@
 .breadcrumb-separator {
     display: flex;
     align-items: center;
-    color: var(--color-text-secondary);
+    color: var(--color-text-caption);
     font-size: var(--font-size-sm);
     margin: 0 var(--spacing-xs);
     user-select: none;
@@ -98,6 +98,6 @@
 .breadcrumb-separator-arrow {
     display: flex;
     align-items: center;
-    color: var(--color-text-secondary);
+    color: var(--color-text-caption);
     margin: 0 var(--spacing-xs);
 }

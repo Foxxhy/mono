@@ -1,0 +1,78 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BackgroundUseCases, PracticeCard } from '../../docs-demos/practices-demos';
+
+<Meta title="Pratiques/Arrière-plans" />
+
+# Arrière-plans
+
+Un arrière-plan sert d’abord à **organiser l’attention**. Le fond de page doit disparaître, un bloc neutre doit structurer, et un bloc mis en avant doit signaler une action ou une information importante.
+
+## Sommaire
+
+- [Fond de page](#fond-de-page)
+- [Bloc neutre](#bloc-neutre)
+- [Bloc mis en avant](#bloc-mis-en-avant)
+- [Bloc informatif](#bloc-informatif)
+- [Aperçu comparatif](#aperçu)
+- [À éviter](#à-éviter)
+
+<h2 id="fond-de-page">Fond de page</h2>
+
+Utilisez le fond de page par défaut pour les surfaces principales et les zones de lecture longue : `--color-bg`, `--color-neutral-0` ou `u-bg-neutral-0`.
+
+```html
+<main class="u-bg-neutral-0">
+  <section class="u-px-xl u-py-3xl">
+    <h1 class="heading-2xl">Page claire et lisible</h1>
+    <p class="body-lg u-mt-md">Le fond ne doit pas concurrencer le contenu.</p>
+  </section>
+</main>
+```
+
+<h2 id="bloc-neutre">Bloc neutre</h2>
+
+Utilisez un fond neutre clair (`u-bg-neutral-100`) pour séparer un groupe dense : filtres, résumé, métadonnées, liste courte, état vide discret.
+
+```html
+<aside class="u-bg-neutral-100 u-p-xl">
+  <p class="label">Résumé</p>
+  <p class="body-sm u-mt-md">3 filtres actifs · dernière mise à jour aujourd’hui</p>
+</aside>
+```
+
+<PracticeCard tone="neutral" title="À utiliser pour un contenu secondaire">
+  Un fond neutre crée une zone sans porter de sens d’état. Il ne doit pas être confondu avec une alerte.
+</PracticeCard>
+
+<h2 id="bloc-mis-en-avant">Bloc mis en avant</h2>
+
+Utilisez une teinte primaire claire (`--background-primary-0`) pour un bloc qui doit attirer l’œil sans devenir une alerte : onboarding, CTA secondaire, rappel stratégique.
+
+```html
+<section style="background: var(--background-primary-0)" class="u-p-xl">
+  <p class="overline">Mise en avant</p>
+  <h2 class="heading-lg">Finaliser la configuration</h2>
+  <p class="body-md u-mt-md">Un message court, directement lié à une action.</p>
+</section>
+```
+
+<h2 id="bloc-informatif">Bloc informatif</h2>
+
+Utilisez `--background-info-0` quand le bloc apporte du contexte, une aide ou une explication. Réservez `danger`, `warning` et `success` aux états réels.
+
+```html
+<section style="background: var(--background-info-0)" class="u-p-xl">
+  <h2 class="heading-md">Information utile</h2>
+  <p class="body-sm u-mt-md">Ce bloc complète l’action principale sans la remplacer.</p>
+</section>
+```
+
+<h2 id="aperçu">Aperçu comparatif</h2>
+
+<BackgroundUseCases />
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Ne placez pas un long texte courant sur une teinte saturée (`*-500` ou plus). Utilisez plutôt les teintes de fond `*-0`.
+- Ne donnez pas une signification d’état à un fond décoratif : `warning` doit correspondre à une attention réelle, `danger` à une erreur ou un risque.
+- Ne mélangez pas plusieurs fonds sémantiques forts dans le même écran : une seule zone principale mise en avant suffit souvent.

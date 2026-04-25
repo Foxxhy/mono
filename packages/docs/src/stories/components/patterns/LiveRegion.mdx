@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Patterns/LiveRegion" />
+
+# Live region
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [Statut non urgent](#status)
+- [Erreur urgente](#alert)
+- [Validation de formulaire](#formulaire)
+- [Pratiques](#pratiques)
+- [RGAA](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Utilisez une live region pour annoncer un changement dynamique qui n’est pas déclenché par un rechargement de page : sauvegarde terminée, erreur asynchrone, résultat de recherche, toast ou validation de formulaire.
+
+<h2 id="status">Statut non urgent</h2>
+
+```html
+<div class="toast toast-success" role="status" aria-live="polite">
+  <div class="toast-content"><p class="toast-title">Enregistré</p><p class="toast-message">Vos changements sont sauvegardés.</p></div>
+</div>
+```
+
+<h2 id="alert">Erreur urgente</h2>
+
+```html
+<div class="alert alert-critical" role="alert">
+  <div class="alert-content"><p class="alert-title">Erreur</p><p class="alert-description">Impossible de continuer.</p></div>
+</div>
+```
+
+<h2 id="formulaire">Validation de formulaire</h2>
+
+Pour une erreur proche d’un champ, associez le message au champ avec `aria-describedby` et `aria-invalid`. La live region est utile si le message apparaît après une action.
+
+```html
+<div class="input-group">
+  <label class="input-label" for="email">Email</label>
+  <input id="email" class="input input-critical" aria-invalid="true" aria-describedby="email-error" />
+  <p id="email-error" class="input-message" role="alert">Adresse email invalide.</p>
+</div>
+```
+
+<h2 id="pratiques">Pratiques</h2>
+
+- Utiliser `role="status"` pour une confirmation non urgente.
+- Utiliser `role="alert"` pour une erreur qui bloque la poursuite.
+- Insérer le message dynamiquement dans la région live au moment où il doit être annoncé.
+- Garder le message court et directement actionnable.
+
+<h2 id="rgaa">RGAA</h2>
+
+- `role="status"` convient aux confirmations non urgentes.
+- `role="alert"` interrompt davantage : réserver aux erreurs critiques.
+- Ne pas déplacer automatiquement le focus vers un toast sauf action bloquante.
+- Pour une erreur de formulaire, lier le champ et le message avec `aria-describedby`.
+- Ne pas annoncer deux fois le même message avec deux régions live concurrentes.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Mettre toute une page dans `aria-live`.
+- Utiliser `role="alert"` pour une simple confirmation.
+- Faire disparaître un toast trop vite pour être lu.

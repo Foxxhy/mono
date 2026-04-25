@@ -72,13 +72,16 @@
 }
 
 .alert-info {
-    color: var(--color-text-neutral-0);
     background-color: var(--color-info-100);
+    color: var(--color-info-700);
 }
 
-.alert-info .alert-title,
+.alert-info .alert-title {
+    color: var(--color-info-800);
+}
+
 .alert-info .alert-description {
-    color: var(--color-text-neutral-0);
+    color: var(--color-info-700);
 }
 
 .alert-success {

@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Fondations/Introduction" />
+
+# Introduction aux fondations
+
+## Sommaire
+
+- [Rôle de la couche Fondations](#rôle)
+- [Couches du design system](#couches)
+- [Pages de référence](#pages)
+
+<h2 id="rôle">Rôle</h2>
+
+Cette section décrit l’imbrication des **fichiers source SCSS** du design system (tokens, reset, utilitaires). Dans Storybook, l’aperçu charge le **fichier CSS généré** `packages/design-system/dist/design-system.css` (le même que le champ `style` du package) : reflet de l’**artefact** publié, pas d’assemblage SCSS séparé côté docs. Exécutez `npm run build:design-system` (depuis `packages/docs`) si le `dist` n’est pas à jour.
+
+L’ordre d’injection côté consommateur est en général :
+
+1. `fondation/token` — variables CSS sur `:root`
+2. `base/reset` — normalisation, typographie de base, focus visible
+3. `utilities` — classes utilitaires `u-*`
+4. `components/*` — styles des composants (inclus dans le `dist` global ; le reset et les utilitaires en dépendent côté source)
+
+<h2 id="couches">Couches du design system</h2>
+
+- **Design tokens** — échelle de couleurs, sémantique de texte et de surface, espacements, typo, ombres, `z-index`, motion, conteneur et points de rupture. Source : `packages/design-system/src/fondation/token.scss`.
+- **Reset** — base sémantique et accessibilité (ex. `focus-visible`). Nécessite que les tokens soient chargés en premier. Source : `packages/design-system/src/base/reset.scss`.
+- **Utilitaires** — utilisation des tokens via des classes courtes. Source : `packages/design-system/src/utilities/`.
+
+<h2 id="pages">Pages de référence</h2>
+
+- [Design tokens](?path=/docs/fondations-design-tokens--docs)
+- [Reset](?path=/docs/fondations-reset--docs)
+- [Utilitaires](?path=/docs/fondations-utilitaires--docs)

@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Badge" />
+
+# Badge
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [HTML minimal copiable](#html-minimal)
+- [Variantes](#variantes)
+- [RGAA et accessibilité](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Composant de la famille **Status**. Utilisez les classes du bundle `dist/design-system.css` et gardez le HTML natif autant que possible.
+
+<h2 id="html-minimal">HTML minimal copiable</h2>
+
+```html
+<span class="badge badge-success">Publié</span>
+```
+
+<h2 id="variantes">Variantes</h2>
+
+Les variations visuelles sont disponibles dans l’onglet stories de cette page (`Components/Badge`). Les classes proviennent de `packages/design-system/src/components/badge.scss`.
+
+<h2 id="rgaa">RGAA et accessibilité</h2>
+
+- Ne pas transmettre un état uniquement par la couleur : le texte du badge doit rester explicite.
+- Conserver un ordre de focus logique et visible.
+- Ne pas transmettre une information uniquement par la couleur.
+- Préférer les éléments HTML natifs avant d’ajouter des rôles ARIA.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Remplacer un élément natif interactif par une `div` cliquable.
+- Supprimer le focus visible ou le libellé accessible.
+- Copier les couleurs hexadécimales : utiliser les classes et tokens du design system.

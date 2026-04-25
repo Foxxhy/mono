@@ -1,0 +1,115 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TokenTable } from '../../docs-demos/foundation-demos';
+
+<Meta title="Pratiques/Espacements" />
+
+# Espacements
+
+Les espacements doivent créer un rythme lisible entre les éléments. Une page réussie utilise peu de valeurs, toujours issues de l’échelle `--spacing-*` ou des utilitaires `u-*`.
+
+## Sommaire
+
+- [Structure globale de page](#page)
+- [Sections et blocs](#sections)
+- [Texte long et paragraphe](#texte)
+- [Formulaires et listes](#formulaires)
+- [Recettes copiables](#recettes)
+
+<h2 id="page">Structure globale de page</h2>
+
+Alignez les pages sur `--container-max` et utilisez un padding latéral stable. Dans le HTML pur, le conteneur peut porter une largeur maximale avec `style`; dans une app, préférez un composant layout réutilisable.
+
+```html
+<main class="u-bg-neutral-0">
+  <div class="u-px-xl u-py-3xl" style="max-width: var(--container-max); margin: 0 auto;">
+    <h1 class="heading-2xl">Titre de page</h1>
+    <p class="body-lg u-mt-md">Introduction du contenu.</p>
+  </div>
+</main>
+```
+
+<h2 id="sections">Sections et blocs</h2>
+
+Entre deux sections majeures, utilisez un rythme plus ample (`u-py-3xl`, `u-mb-3xl`). Dans une carte ou un bloc, `u-p-xl` est un bon point de départ.
+
+<TokenTable
+  headers={['Cas d’usage', 'Espacement recommandé']}
+  rows={[
+    { name: 'Respiration page / hero', preview: 'u-py-3xl' },
+    { name: 'Bloc ou carte standard', preview: 'u-p-xl' },
+    { name: 'Séparation entre sections', preview: 'u-mb-3xl' },
+    { name: 'Titre + paragraphe', preview: 'u-mt-md' },
+    { name: 'Liste compacte', preview: 'u-gap-md' },
+  ]}
+/>
+
+```html
+<section class="u-mb-3xl">
+  <h2 class="heading-xl">Section principale</h2>
+  <p class="body-md u-mt-md">Texte d’introduction.</p>
+</section>
+
+<section class="u-bg-neutral-100 u-p-xl">
+  <h3 class="heading-md">Bloc standard</h3>
+  <p class="body-sm u-mt-md">Contenu du bloc.</p>
+</section>
+```
+
+<h2 id="texte">Texte long et paragraphe</h2>
+
+Dans un texte long, gardez un espacement régulier : le titre ouvre la section, les paragraphes respirent avec `u-mt-md`, les groupes plus importants avec `u-mt-xl`.
+
+```html
+<article>
+  <h2 class="heading-xl">Titre d’article</h2>
+  <p class="body-md u-mt-md">Premier paragraphe du texte.</p>
+  <p class="body-md u-mt-md">Deuxième paragraphe, même rythme.</p>
+
+  <h3 class="heading-md u-mt-xl">Sous-partie</h3>
+  <p class="body-md u-mt-md">Contenu associé à la sous-partie.</p>
+</article>
+```
+
+<h2 id="formulaires">Formulaires et listes</h2>
+
+Un formulaire doit être facile à scanner : champ + aide proches (`u-mt-md`), groupes séparés (`u-mb-2xl`), actions après la lecture (`u-mt-xl`).
+
+```html
+<form>
+  <div class="u-mb-2xl">
+    <label class="label" for="name">Nom</label>
+    <input id="name" />
+    <p class="caption u-mt-md">Nom affiché publiquement.</p>
+  </div>
+
+  <button type="submit">Enregistrer</button>
+</form>
+```
+
+<h2 id="recettes">Recettes copiables</h2>
+
+### Page article
+
+```html
+<main class="u-px-xl u-py-3xl" style="max-width: 720px; margin: 0 auto;">
+  <p class="overline">Guide</p>
+  <h1 class="heading-2xl">Titre de l’article</h1>
+  <p class="body-lg u-mt-md">Résumé du contenu.</p>
+  <article class="u-mt-3xl">
+    <p class="body-md">Premier paragraphe.</p>
+    <p class="body-md u-mt-md">Deuxième paragraphe.</p>
+  </article>
+</main>
+```
+
+### Fiche produit
+
+```html
+<section class="u-px-xl u-py-3xl" style="max-width: var(--container-max); margin: 0 auto;">
+  <div class="u-bg-neutral-100 u-p-xl">
+    <p class="label">Nouveau</p>
+    <h2 class="heading-xl u-mt-md">Nom du produit</h2>
+    <p class="body-md u-mt-md">Description courte et orientée usage.</p>
+  </div>
+</section>
+```

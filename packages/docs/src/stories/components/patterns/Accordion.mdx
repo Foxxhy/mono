@@ -1,0 +1,91 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Patterns/Accordion" />
+
+# Accordion / disclosure
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [Pattern natif](#natif)
+- [Variante ARIA](#aria)
+- [Exemples d’usage](#exemples)
+- [RGAA](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Utilisez un accordion pour masquer un contenu secondaire que l’utilisateur peut ouvrir à la demande : FAQ, paramètres avancés, détails d’une ligne, aide contextuelle. Ne l’utilisez pas pour cacher une information indispensable à la compréhension d’une action.
+
+<h2 id="natif">Pattern natif</h2>
+
+Privilégiez `<details><summary>` pour un panneau simple : le clavier, l’état ouvert et le nom accessible sont gérés par le navigateur.
+
+```html
+<details class="card card-border">
+  <summary class="heading-sm">Voir les détails</summary>
+  <p class="body-sm u-mt-md">Contenu révélé.</p>
+</details>
+```
+
+<h2 id="aria">Variante ARIA</h2>
+
+Si vous devez contrôler l’animation, utilisez un bouton réel.
+
+```html
+<button type="button" class="button button-primary-outline" aria-expanded="false" aria-controls="panel-1">
+  Voir les détails
+</button>
+<div id="panel-1" hidden>
+  <p class="body-sm">Contenu révélé.</p>
+</div>
+```
+
+```js
+const button = document.querySelector('[aria-controls="panel-1"]');
+const panel = document.querySelector('#panel-1');
+
+button.addEventListener('click', () => {
+  const isOpen = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', String(!isOpen));
+  panel.hidden = isOpen;
+});
+```
+
+<h2 id="exemples">Exemples d’usage</h2>
+
+### FAQ simple
+
+```html
+<details class="card card-border">
+  <summary class="heading-sm">Quels navigateurs sont supportés ?</summary>
+  <p class="body-sm u-mt-md">Les navigateurs modernes avec support des custom properties CSS.</p>
+</details>
+```
+
+### Paramètres avancés
+
+```html
+<section>
+  <button type="button" class="button button-primary-outline" aria-expanded="false" aria-controls="advanced-settings">
+    Afficher les paramètres avancés
+  </button>
+  <div id="advanced-settings" class="card card-border u-mt-md" hidden>
+    <p class="body-sm">Options rarement utilisées.</p>
+  </div>
+</section>
+```
+
+<h2 id="rgaa">RGAA</h2>
+
+- Le déclencheur doit être un bouton ou un `summary`.
+- `aria-expanded` doit refléter l’état réel si vous n’utilisez pas `details`.
+- Le panneau masqué doit être retiré de la navigation clavier (`hidden`).
+- Le texte du déclencheur doit annoncer le contenu qui sera affiché.
+- L’ouverture ne doit pas déplacer le focus sans raison.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Utiliser une `div` cliquable comme déclencheur.
+- Garder un panneau visuellement masqué mais encore focusable.
+- Mettre des informations obligatoires uniquement dans un panneau fermé par défaut.

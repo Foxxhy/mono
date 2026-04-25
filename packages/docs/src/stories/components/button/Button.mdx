@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Button" />
+
+# Button
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [HTML minimal copiable](#html-minimal)
+- [Variantes](#variantes)
+- [RGAA et accessibilité](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Composant de la famille **Actions**. Utilisez les classes du bundle `dist/design-system.css` et gardez le HTML natif autant que possible.
+
+<h2 id="html-minimal">HTML minimal copiable</h2>
+
+```html
+<button type="button" class="button button-primary">Enregistrer</button>
+<a href="/details" class="button button-secondary-outline">Voir le détail</a>
+```
+
+<h2 id="variantes">Variantes</h2>
+
+Les variations visuelles sont disponibles dans l’onglet stories de cette page (`Components/Button`). Les classes proviennent de `packages/design-system/src/components/button.scss`.
+
+<h2 id="rgaa">RGAA et accessibilité</h2>
+
+- Utiliser `<button>` pour une action et `<a>` pour une navigation. Un bouton icône doit avoir un nom accessible (`aria-label` ou texte masqué).
+- Conserver un ordre de focus logique et visible.
+- Ne pas transmettre une information uniquement par la couleur.
+- Préférer les éléments HTML natifs avant d’ajouter des rôles ARIA.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Remplacer un élément natif interactif par une `div` cliquable.
+- Supprimer le focus visible ou le libellé accessible.
+- Copier les couleurs hexadécimales : utiliser les classes et tokens du design system.

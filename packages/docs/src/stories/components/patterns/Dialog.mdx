@@ -1,0 +1,80 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Patterns/Dialog" />
+
+# Dialog natif
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [Pourquoi `<dialog>`](#pourquoi)
+- [Snippet copiable](#snippet)
+- [Lien avec `.modal-*`](#modal)
+- [Comportements attendus](#comportements)
+- [RGAA](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Utilisez un dialog pour une interaction bloquante et courte : confirmation destructive, choix obligatoire, formulaire très court. Pour une information non bloquante, préférez une page, un panneau ou une alerte.
+
+<h2 id="pourquoi">Pourquoi `<dialog>`</h2>
+
+Le dialog natif fournit un comportement accessible plus fiable qu’un overlay custom : ouverture modale, gestion de fermeture et intégration clavier. Les classes `.modal-*` peuvent servir au style d’une implémentation custom, mais ne fournissent pas le comportement.
+
+<h2 id="snippet">Snippet copiable</h2>
+
+```html
+<button type="button" class="button button-primary" id="open-dialog">Ouvrir</button>
+<dialog id="confirm-dialog" aria-labelledby="confirm-title">
+  <form method="dialog" class="modal-container modal-md">
+    <header class="modal-header"><h2 id="confirm-title" class="modal-title">Confirmer</h2></header>
+    <div class="modal-body"><p class="body-md">Voulez-vous continuer ?</p></div>
+    <footer class="modal-footer"><button class="button button-primary-outline" value="cancel">Annuler</button><button class="button button-primary" value="confirm">Confirmer</button></footer>
+  </form>
+</dialog>
+<script>
+  document.querySelector('#open-dialog').addEventListener('click', () => {
+    document.querySelector('#confirm-dialog').showModal();
+  });
+</script>
+```
+
+<h2 id="modal">Lien avec `.modal-*`</h2>
+
+Les classes `.modal-container`, `.modal-header`, `.modal-body` et `.modal-footer` peuvent être réutilisées dans le contenu du `<dialog>`.
+
+```html
+<dialog id="help-dialog" aria-labelledby="help-title">
+  <article class="modal-container modal-lg">
+    <header class="modal-header">
+      <h2 id="help-title" class="modal-title">Aide</h2>
+      <form method="dialog"><button class="modal-close" aria-label="Fermer">×</button></form>
+    </header>
+    <div class="modal-body">
+      <p class="body-md">Contenu d’aide court et ciblé.</p>
+    </div>
+  </article>
+</dialog>
+```
+
+<h2 id="comportements">Comportements attendus</h2>
+
+- À l’ouverture, placer le focus sur le titre, le premier champ ou le bouton principal selon le contexte.
+- À la fermeture, rendre le focus au bouton qui a ouvert le dialog.
+- Fermer avec Escape, sauf cas exceptionnel explicitement justifié.
+- Ne pas permettre l’interaction avec le contenu arrière-plan.
+
+<h2 id="rgaa">RGAA</h2>
+
+- Le titre visible doit être lié avec `aria-labelledby`.
+- Prévoir une fermeture explicite et la touche Escape.
+- Rendre le focus initial pertinent et retourner le focus au déclencheur.
+- Le contenu du dialog doit rester court et porter un nom accessible.
+- Une action destructive doit être annoncée clairement dans le titre ou le texte.
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Afficher une modale sans focus management.
+- Utiliser une modale pour un long tunnel de navigation.
+- Fermer la modale uniquement en cliquant hors du contenu.

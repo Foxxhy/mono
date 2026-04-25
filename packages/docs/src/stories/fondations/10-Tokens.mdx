@@ -1,0 +1,206 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorRamp, ColorTextSample, ShadowBox, SpacingBar, TokenTable } from '../../docs-demos/foundation-demos';
+
+<Meta title="Fondations/Design tokens" />
+
+# Design tokens
+
+Les variables ci-dessous sont définies dans le design system (`fondation/token.scss`) et présentes dans l’**artefact** `dist/design-system.css` chargé par le preview. Les aperçus utilisent `var(--nom)` ou les classes `u-*` de ce bundle.
+
+## Sommaire
+
+- [Couleurs (ramps)](#couleurs-ramps)
+- [Fonds sémantiques](#fonds-sémantiques)
+- [Bordures sémantiques](#bordures-sémantiques)
+- [Texte sémantique](#texte-sémantique)
+- [Surfaces et texte de page](#surfaces)
+- [Espacements](#espacements)
+- [Typographie](#typographie)
+- [Ombres](#ombres)
+- [Z-index](#z-index)
+- [Motion](#motion)
+- [Layout (conteneur, breakpoints)](#layout)
+
+<h2 id="couleurs-ramps">Couleurs (ramps)</h2>
+
+Ramps 0–800 par famille. Aperçu = couleur de fond, libellé = nom de la variable.
+
+### Neutre
+
+<ColorRamp family="neutral" labelPrefix="neutral-" />
+
+### Primaire
+
+<ColorRamp family="primary" labelPrefix="primary-" />
+
+### Accent
+
+<ColorRamp family="accent" labelPrefix="--color-accent-" />
+
+### Danger, avertissement, succès, info
+
+<ColorRamp family="danger" labelPrefix="danger-" />
+<ColorRamp family="warning" labelPrefix="warning-" />
+<ColorRamp family="success" labelPrefix="success-" />
+<ColorRamp family="info" labelPrefix="info-" />
+
+<h2 id="fonds-sémantiques">Fonds sémantiques</h2>
+
+<TokenTable
+  headers={['Variable', 'Aperçu', 'Même valeur (référence)']}
+  rows={[
+    { name: '--background-neutral-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-neutral-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'neutral-0' },
+    { name: '--background-primary-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-primary-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'primary-0' },
+    { name: '--background-accent-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-accent-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'accent-0' },
+    { name: '--background-danger-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-danger-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'danger-0' },
+    { name: '--background-warning-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-warning-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'warning-0' },
+    { name: '--background-success-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-success-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'success-0' },
+    { name: '--background-info-0', preview: <div style={{ width: 48, height: 40, background: 'var(--background-info-0)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'info-0' },
+  ]}
+/>
+
+<h2 id="bordures-sémantiques">Bordures sémantiques</h2>
+
+<TokenTable
+  headers={['Variable', 'Aperçu', 'Référence']}
+  rows={[
+    { name: '--border-color-neutral-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-neutral-0)', background: 'var(--color-neutral-100)' }} />, description: 'neutral-0' },
+    { name: '--border-color-primary-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-primary-0)' }} />, description: 'primary-0' },
+    { name: '--border-color-accent-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-accent-0)' }} />, description: 'accent-0' },
+    { name: '--border-color-danger-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-danger-0)' }} />, description: 'danger-0' },
+    { name: '--border-color-warning-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-warning-0)' }} />, description: 'warning-0' },
+    { name: '--border-color-success-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-success-0)' }} />, description: 'success-0' },
+    { name: '--border-color-info-0', preview: <div style={{ width: 120, height: 28, border: '3px solid var(--border-color-info-0)' }} />, description: 'info-0' },
+  ]}
+/>
+
+<h2 id="texte-sémantique">Texte sémantique</h2>
+
+<TokenTable
+  headers={['Variable', 'Aperçu', 'Poids']}
+  rows={[
+    { name: '--color-text-heading', preview: <ColorTextSample varName="--color-text-heading">Titre</ColorTextSample>, description: 'neutral-800' },
+    { name: '--color-text-body', preview: <ColorTextSample varName="--color-text-body">Corps</ColorTextSample>, description: 'neutral-700' },
+    { name: '--color-text-label', preview: <ColorTextSample varName="--color-text-label">Label</ColorTextSample>, description: 'neutral-600' },
+    { name: '--color-text-overline', preview: <ColorTextSample varName="--color-text-overline">Survol</ColorTextSample>, description: 'neutral-500' },
+    { name: '--color-text-caption', preview: <ColorTextSample varName="--color-text-caption">Légende</ColorTextSample>, description: 'neutral-400' },
+    { name: '--color-text-primary', preview: <ColorTextSample varName="--color-text-primary">Primaire</ColorTextSample>, description: 'primary-500' },
+    { name: '--color-text-accent', preview: <ColorTextSample varName="--color-text-accent">Accent</ColorTextSample>, description: 'accent-500' },
+    { name: '--color-text-danger', preview: <ColorTextSample varName="--color-text-danger">Danger</ColorTextSample>, description: 'danger-500' },
+    { name: '--color-text-warning', preview: <ColorTextSample varName="--color-text-warning">Avertissement</ColorTextSample>, description: 'warning-500' },
+    { name: '--color-text-success', preview: <ColorTextSample varName="--color-text-success">Succès</ColorTextSample>, description: 'success-500' },
+    { name: '--color-text-info', preview: <ColorTextSample varName="--color-text-info">Info</ColorTextSample>, description: 'info-500' },
+  ]}
+/>
+
+<h2 id="surfaces">Surfaces et texte de page</h2>
+
+<TokenTable
+  headers={['Variable', 'Aperçu', 'Dépendance']}
+  rows={[
+    { name: '--color-bg', preview: <div style={{ width: 48, height: 40, background: 'var(--color-bg)', border: '1px solid var(--color-neutral-200)', borderRadius: 4 }} />, description: 'neutral-0' },
+    { name: '--color-text', preview: <ColorTextSample varName="--color-text">Texte courant</ColorTextSample>, description: 'color-text-body' },
+    { name: '--color-focus', preview: <div style={{ width: 48, height: 4, background: 'var(--color-focus)', borderRadius: 2 }} />, description: 'primary-500' },
+  ]}
+/>
+
+<h2 id="espacements">Espacements</h2>
+
+<TokenTable
+  headers={['Variable', 'Aperçu']}
+  rows={[
+    { name: '--spacing-0', preview: <SpacingBar varName="--spacing-0" label="0" /> },
+    { name: '--spacing-xs', preview: <SpacingBar varName="--spacing-xs" label="xs" /> },
+    { name: '--spacing-sm', preview: <SpacingBar varName="--spacing-sm" label="sm" /> },
+    { name: '--spacing-md', preview: <SpacingBar varName="--spacing-md" label="md" /> },
+    { name: '--spacing-lg', preview: <SpacingBar varName="--spacing-lg" label="lg" /> },
+    { name: '--spacing-xl', preview: <SpacingBar varName="--spacing-xl" label="xl" /> },
+    { name: '--spacing-2xl', preview: <SpacingBar varName="--spacing-2xl" label="2xl" /> },
+    { name: '--spacing-3xl', preview: <SpacingBar varName="--spacing-3xl" label="3xl" /> },
+  ]}
+/>
+
+<h2 id="typographie">Typographie</h2>
+
+### Familles
+
+<TokenTable
+  headers={['Variable', 'Aperçu']}
+  rows={[
+    { name: '--font-family-primary', preview: <span style={{ fontFamily: 'var(--font-family-primary)', fontSize: 'var(--font-size-md)' }}>Inter, sans-serif, …</span> },
+    { name: '--font-family-secondary', preview: <span style={{ fontFamily: 'var(--font-family-secondary)', fontSize: 'var(--font-size-md)' }}>Verdana, … (reset body)</span> },
+  ]}
+/>
+
+### Tailles (rem) et hauteurs de ligne
+
+<TokenTable
+  headers={['Variable', 'Aperçu']}
+  rows={[
+    { name: '--font-size-xs / --line-height-xs', preview: <span style={{ fontSize: 'var(--font-size-xs)', lineHeight: 'var(--line-height-xs)', display: 'block' }}>Texte xs</span> },
+    { name: '--font-size-sm / --line-height-sm', preview: <span style={{ fontSize: 'var(--font-size-sm)', lineHeight: 'var(--line-height-sm)', display: 'block' }}>Texte sm</span> },
+    { name: '--font-size-md / --line-height-md', preview: <span style={{ fontSize: 'var(--font-size-md)', lineHeight: 'var(--line-height-md)', display: 'block' }}>Texte md</span> },
+    { name: '--font-size-lg / --line-height-lg', preview: <span style={{ fontSize: 'var(--font-size-lg)', lineHeight: 'var(--line-height-lg)', display: 'block' }}>Texte lg</span> },
+    { name: '--font-size-xl / --line-height-xl', preview: <span style={{ fontSize: 'var(--font-size-xl)', lineHeight: 'var(--line-height-xl)', display: 'block' }}>Texte xl</span> },
+    { name: '--font-size-2xl (sans line-height token dédié)', preview: <span style={{ fontSize: 'var(--font-size-2xl)', lineHeight: 1.2, display: 'block' }}>2xl</span> },
+  ]}
+/>
+
+### Graisses
+
+<TokenTable
+  headers={['Variable', 'Aperçu']}
+  rows={[
+    { name: '--font-weight-sm', preview: <span style={{ fontWeight: 'var(--font-weight-sm)', fontSize: 'var(--font-size-lg)' }}>400</span> },
+    { name: '--font-weight-md', preview: <span style={{ fontWeight: 'var(--font-weight-md)', fontSize: 'var(--font-size-lg)' }}>500</span> },
+    { name: '--font-weight-lg', preview: <span style={{ fontWeight: 'var(--font-weight-lg)', fontSize: 'var(--font-size-lg)' }}>700</span> },
+  ]}
+/>
+
+<h2 id="ombres">Ombres</h2>
+
+<div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginTop: 8 }}>
+  <ShadowBox varName="--shadow-sm" label="sm" />
+  <ShadowBox varName="--shadow-md" label="md" />
+  <ShadowBox varName="--shadow-lg" label="lg" />
+  <ShadowBox varName="--shadow-xl" label="xl" />
+</div>
+
+<h2 id="z-index">Z-index</h2>
+
+<TokenTable
+  headers={['Variable', 'Valeur (nombre)']}
+  rows={[
+    { name: '--z-index-xs', preview: '10' },
+    { name: '--z-index-sm', preview: '20' },
+    { name: '--z-index-md', preview: '30' },
+    { name: '--z-index-lg', preview: '40' },
+    { name: '--z-index-xl', preview: '50' },
+    { name: '--z-index-2xl', preview: '100' },
+    { name: '--z-index-3xl', preview: '9999' },
+  ]}
+/>
+
+<h2 id="motion">Motion</h2>
+
+<TokenTable
+  headers={['Variable', 'Aperçu']}
+  rows={[
+    { name: '--motion-short', preview: '160ms (durations courtes, transitions UI)' },
+    { name: '--motion-curve', preview: 'cubic-bezier(0.2, 0.9, 0.2, 1)' },
+  ]}
+/>
+
+<h2 id="layout">Layout (conteneur, breakpoints)</h2>
+
+<TokenTable
+  headers={['Variable', 'Valeur / usage']}
+  rows={[
+    { name: '--container-max', preview: '1100px' },
+    { name: '--breakpoint-sm', preview: '365px' },
+    { name: '--breakpoint-md', preview: '992px' },
+    { name: '--breakpoint-lg', preview: '1200px' },
+  ]}
+/>
+
+Ces dernières sont des *tokens* prêts pour les media queries personnalisées (les requêtes ne peuvent pas consommer les variables directement en CSS natif) ou pour le JS/SCSS côté app.

@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Fondations/Reset" />
+
+# Reset (base)
+
+Dans le code source, le reset est défini dans `base/reset.scss` ; dans Storybook, il est appliqué **via** le bundle `dist/design-system.css` (même enchaînement qu’en production, construit par le design system). **Les tokens** (`:root` dans `fondation/token`) précèdent le reset dans ce bundle, car de nombreuses règles s’appuient sur `var(--color-…)`, `var(--font-…)`, etc.
+
+## Sommaire
+
+- [Objectif](#objectif)
+- [Principales règles](#règles)
+- [Accessibilité et focus](#focus)
+- [Ordre d’injection recommandé](#injection)
+- [Voir aussi](#voir-aussi)
+
+<h2 id="objectif">Objectif</h2>
+
+- Remettre les navigateurs sur une **base prévisible** (taille de `html`, `box-sizing` universel, marges héritées nulles sur les blocs de texte courants).
+- Aligner le **fond** et le **texte** sur les tokens sémantiques (`--color-bg`, `--color-text`) pour toute l’arbre document.
+- Préparer les contrôles de formulaire et médias (images en `block`, tableaux, etc.) sans reseter ce que les composants pourront re-styliser.
+
+<h2 id="règles">Principales règles</h2>
+
+- **`html`** : `font-size: 16px` (référence `rem`), `text-size-adjust: 100%`, `scrollbar-gutter: stable` pour limiter le saut de layout lors de l’apparition d’une barre de défilement.
+- **`body`** : pas de marge, hauteur minimale plein viewport, arrière-plan et couleur de texte via les tokens, police secondaire par défaut, lissage de police.
+- **Titres, paragraphes, listes, figures, `dl`/`dd`** : marges remises à 0; listes sans pastille intégrée par défaut (à réintroduire côté composant si besoin).
+- **Liens** : couleur héritée, pas de soulignement; curseur `pointer` sur l’`a`.
+- **Boutons et entrées** : `appearance` / bordure / arrière-plan neutralisés pour les `button` et types d’`input` concernés, police et couleurs héritées.
+- **Médias** : `img`, `picture`, `video`, `canvas`, `svg` en `block` + `max-width: 100%`.
+- **Tableaux** : bordure fusionnée, `width: 100%`.
+- **Champs masqués** : `[hidden] { display: none !important; }`.
+
+<h2 id="focus">Accessibilité et focus</h2>
+
+- **`:focus-visible`** (tous éléments) : contour `2px solid` avec `var(--color-focus, currentColor)` et décalage `2px` — repère de clavier explicite sans imposer de style de souris sur tout `:focus`.
+- Cette couleur s’appuie sur le token de focus documenté côté [Design tokens](?path=/docs/fondations-design-tokens--docs#surfaces).
+
+<h2 id="injection">Ordre d’injection recommandé</h2>
+
+1. `fondation/token`
+2. `base/reset` (dépend des variables ci-dessus)
+3. `utilities` (optionnel mais courant)
+4. `components/*` (dans l’ordre d’impression du build consommateur)
+
+Le **`dist` du design system** reprend cet ordre (tokens, reset, utilitaires, composants) tel que défini par `src/index.scss`, puis compilé.
+
+<h2 id="voir-aussi">Voir aussi</h2>
+
+- [Design tokens](?path=/docs/fondations-design-tokens--docs)
+- [Utilitaires](?path=/docs/fondations-utilitaires--docs)
+- [Introduction](?path=/docs/fondations-introduction--docs)
