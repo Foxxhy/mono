@@ -15,7 +15,11 @@ export const Variations: Story = {
     <div style={{ display: 'grid', gap: '1rem' }}>
       {['neutral', 'info', 'success', 'warning', 'critical'].map((tone) => (
         <div key={tone} className={`alert alert-${tone}`} role={tone === 'critical' ? 'alert' : 'status'}>
-          <span className="alert-icon" aria-hidden="true">!</span>
+          <span className="alert-icon" aria-hidden="true">
+            <svg className="icon icon-lg" aria-hidden="true" role="presentation">
+              <use href={`/icons.svg#${tone === 'success' ? 'circle-check' : tone === 'critical' ? 'circle-alert' : 'info'}`} />
+            </svg>
+          </span>
           <div className="alert-content">
             <p className="alert-title">Alerte {tone}</p>
             <p className="alert-description">Message court, explicite et actionnable.</p>

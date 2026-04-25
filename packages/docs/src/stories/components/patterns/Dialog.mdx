@@ -22,6 +22,8 @@ Utilisez un dialog pour une interaction bloquante et courte : confirmation destr
 
 Le dialog natif fournit un comportement accessible plus fiable qu’un overlay custom : ouverture modale, gestion de fermeture et intégration clavier. Les classes `.modal-*` peuvent servir au style d’une implémentation custom, mais ne fournissent pas le comportement.
 
+Dans cette documentation, **le composant Modal décrit le style et la structure**, tandis que **ce pattern décrit le comportement attendu** pour une interaction modale accessible.
+
 <h2 id="snippet">Snippet copiable</h2>
 
 ```html
@@ -49,7 +51,13 @@ Les classes `.modal-container`, `.modal-header`, `.modal-body` et `.modal-footer
   <article class="modal-container modal-lg">
     <header class="modal-header">
       <h2 id="help-title" class="modal-title">Aide</h2>
-      <form method="dialog"><button class="modal-close" aria-label="Fermer">×</button></form>
+      <form method="dialog">
+        <button class="modal-close" aria-label="Fermer">
+          <svg class="icon icon-base" aria-hidden="true" role="presentation">
+            <use href="/icons.svg#x"></use>
+          </svg>
+        </button>
+      </form>
     </header>
     <div class="modal-body">
       <p class="body-md">Contenu d’aide court et ciblé.</p>

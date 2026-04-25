@@ -17,6 +17,8 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 Utilisez ce pattern pour structurer les liens de navigation persistants : navigation principale, navigation mobile, pied de page ou liens de section. Chaque zone doit avoir un nom accessible distinct.
 
+Les composants `Header` et `Footer` fournissent les classes de structure et de style. Ce pattern complète ces composants avec les comportements attendus : intitulés accessibles, état courant et synchronisation du menu mobile.
+
 <h2 id="principale">Navigation principale</h2>
 
 ```html
@@ -32,11 +34,9 @@ Utilisez ce pattern pour structurer les liens de navigation persistants : naviga
 
 ```html
 <button type="button" class="header-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav">
-  <span class="header-menu-toggle-icon" aria-hidden="true">
-    <span class="header-menu-toggle-line"></span>
-    <span class="header-menu-toggle-line"></span>
-    <span class="header-menu-toggle-line"></span>
-  </span>
+  <svg class="icon icon-xl" aria-hidden="true" role="presentation">
+    <use href="/icons.svg#menu"></use>
+  </svg>
 </button>
 <nav id="mobile-nav" hidden aria-label="Navigation mobile">
   <ul class="header-nav-list"><li><a class="header-nav-link" href="/">Accueil</a></li></ul>

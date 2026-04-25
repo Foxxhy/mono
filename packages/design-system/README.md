@@ -19,6 +19,24 @@ Le champ `style` du `package.json` pointe vers `dist/design-system.css`. Importe
 
 Puis utilisez les classes documentées dans les partiels sous `src/components/` (même nommage en CSS compilé).
 
+## Utilisation des icônes
+
+Le build publie aussi un sprite SVG dans `dist/icons.svg`. Il ne contient pas de JavaScript et se consomme avec les classes CSS du design system :
+
+```html
+<svg class="icon icon-base" aria-hidden="true" role="presentation">
+  <use href="/node_modules/foxxhy-mono/dist/icons.svg#activity"></use>
+</svg>
+```
+
+Pour une icône informative, donnez-lui un nom accessible :
+
+```html
+<svg class="icon icon-base icon-color-info" role="img" aria-label="Information">
+  <use href="/node_modules/foxxhy-mono/dist/icons.svg#info"></use>
+</svg>
+```
+
 ## Utilisation des sources SCSS
 
 Dans un projet qui compile déjà le Sass, vous pouvez :
@@ -43,7 +61,7 @@ Les chemins exacts dépendent de la configuration `--load-path` / `includePaths`
 | Script | Rôle |
 |--------|------|
 | `npm run dev` | Compilation en continu vers `dist/design-system.css` (CSS développement + source maps). |
-| `npm run build` | Build de production : CSS minifié dans `dist/design-system.css` (sans source map). |
+| `npm run build` | Build de production : CSS minifié dans `dist/design-system.css` (sans source map) et sprite `dist/icons.svg`. |
 | `npm run lint` | Stylelint sur `src/**/*.scss`. |
 | `npm run lint-fix` | Stylelint avec corrections automatiques. |
 | `npm run publish` | **Préparation locale** : `lint-fix` puis `build`. Ne remplace pas `npm publish` sur le registre npm. |
@@ -67,7 +85,7 @@ Les composants et utilitaires s’appuient sur ces custom properties : une surch
 | `fondation/` | Tokens (`token.scss`). |
 | `base/` | Reset global. |
 | `utilities/` | Utilitaires couleur, espacement, flex, position (préfixe `u-`). |
-| `components/` | Styles par composant (alert, badge, breadcrumb, button, card, checkbox, divider, footer, header, input, link, modal, radio, select, spinner, table, toast, toggle, typo). |
+| `components/` | Styles par composant (alert, badge, breadcrumb, button, card, checkbox, divider, footer, header, icon, input, link, modal, radio, select, spinner, table, toast, toggle, typo). |
 
 ## Contraintes
 

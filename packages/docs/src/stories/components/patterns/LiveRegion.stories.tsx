@@ -14,7 +14,11 @@ export const Variations: Story = {
   render: () => (
     <div style={{ display: 'grid', gap: '1rem', maxWidth: 720 }}>
       <div className="toast toast-success" role="status" aria-live="polite">
-        <span className="toast-icon" aria-hidden="true">✓</span>
+        <span className="toast-icon" aria-hidden="true">
+          <svg className="icon icon-lg" aria-hidden="true" role="presentation">
+            <use href="/icons.svg#circle-check" />
+          </svg>
+        </span>
         <div className="toast-content">
           <p className="toast-title">Statut non urgent</p>
           <p className="toast-message">Vos changements sont sauvegardés.</p>

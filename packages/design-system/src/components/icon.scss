@@ -1,0 +1,65 @@
+.icon {
+    display: inline-block;
+    width: var(--icon-size, 1em);
+    height: var(--icon-size, 1em);
+    flex: 0 0 auto;
+    color: currentcolor;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vertical-align: -0.125em;
+}
+
+.icon-xs {
+    --icon-size: var(--font-size-xs);
+}
+
+.icon-sm {
+    --icon-size: var(--font-size-sm);
+}
+
+.icon-base {
+    --icon-size: var(--font-size-md);
+}
+
+.icon-lg {
+    --icon-size: var(--font-size-lg);
+}
+
+.icon-xl {
+    --icon-size: var(--font-size-xl);
+}
+
+.icon-2xl {
+    --icon-size: var(--font-size-2xl);
+}
+
+.icon-color-neutral {
+    color: var(--color-text-body);
+}
+
+.icon-color-heading {
+    color: var(--color-text-heading);
+}
+
+.icon-color-primary {
+    color: var(--color-text-primary);
+}
+
+.icon-color-success {
+    color: var(--color-text-success);
+}
+
+.icon-color-warning {
+    color: var(--color-text-warning);
+}
+
+.icon-color-danger {
+    color: var(--color-text-danger);
+}
+
+.icon-color-info {
+    color: var(--color-text-info);
+}

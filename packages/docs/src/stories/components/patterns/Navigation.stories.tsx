@@ -24,11 +24,9 @@ export const Variations: Story = {
       <section className="card card-border">
         <h2 className="heading-md">Déclencheur mobile</h2>
         <button type="button" className="header-menu-toggle u-mt-md" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-nav-story">
-          <span className="header-menu-toggle-icon" aria-hidden="true">
-            <span className="header-menu-toggle-line" />
-            <span className="header-menu-toggle-line" />
-            <span className="header-menu-toggle-line" />
-          </span>
+          <svg className="icon icon-xl" aria-hidden="true" role="presentation">
+            <use href="/icons.svg#menu" />
+          </svg>
         </button>
       </section>
     </div>

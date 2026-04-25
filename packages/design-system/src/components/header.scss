@@ -42,7 +42,7 @@
 }
 
 .header-brand:focus-visible {
-    outline: 2px solid var(--color-info-500);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
     border-radius: 0.25rem;
 }
@@ -95,7 +95,7 @@
 }
 
 .header-nav-link:focus-visible {
-    outline: 2px solid var(--color-info-500);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .header-menu-toggle:focus-visible {
-    outline: 2px solid var(--color-info-500);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
     border-radius: 0.25rem;
 }

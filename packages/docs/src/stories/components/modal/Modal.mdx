@@ -16,16 +16,27 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 Composant de la famille **Overlay**. Utilisez les classes du bundle `dist/design-system.css` et gardez le HTML natif autant que possible.
 
+Les classes `.modal-*` fournissent la structure et le style. Elles ne fournissent pas le comportement d’une modale : focus initial, trap de focus, fermeture Escape, retour du focus et blocage du scroll arrière-plan restent à implémenter côté application. Pour une interaction bloquante simple, privilégiez le pattern [`Patterns/Dialog`](?path=/docs/patterns-dialog--docs) basé sur `<dialog>`.
+
 <h2 id="html-minimal">HTML minimal copiable</h2>
 
 ```html
 <div class="modal-overlay" data-open="true">
   <section class="modal-container modal-md" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-    <header class="modal-header"><h2 id="dialog-title" class="modal-title">Confirmer</h2><button class="modal-close" aria-label="Fermer">×</button></header>
+    <header class="modal-header">
+      <h2 id="dialog-title" class="modal-title">Confirmer</h2>
+      <button class="modal-close" aria-label="Fermer">
+        <svg class="icon icon-base" aria-hidden="true" role="presentation">
+          <use href="/icons.svg#x"></use>
+        </svg>
+      </button>
+    </header>
     <div class="modal-body">Contenu.</div>
   </section>
 </div>
 ```
+
+Ce snippet montre la structure CSS minimale. Il n’est prêt pour la production qu’après ajout des comportements listés dans la section RGAA.
 
 <h2 id="variantes">Variantes</h2>
 

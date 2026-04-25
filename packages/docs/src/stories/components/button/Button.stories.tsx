@@ -17,7 +17,11 @@ export const Variations: Story = {
       <button className="button button-primary-outline">Primary outline</button>
       <button className="button button-secondary">Secondary</button>
       <button className="button button-critical">Critical</button>
-      <button className="button button-icon-only" aria-label="Fermer">×</button>
+      <button className="button button-icon-only" aria-label="Fermer">
+        <svg className="icon icon-base" aria-hidden="true" role="presentation">
+          <use href="/icons.svg#x" />
+        </svg>
+      </button>
       <button className="button button-primary" disabled>Disabled</button>
     </div>
   ),

@@ -20,8 +20,8 @@
 
 .input:focus-visible {
     outline: none;
-    border-color: var(--color-primary-500);
-    box-shadow: 0 0 0 3px rgb(104 65 217 / 25%);
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus) 25%, transparent);
 }
 
 .input:disabled {

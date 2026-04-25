@@ -1,0 +1,76 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Icons" />
+
+# Icons
+
+## Sommaire
+
+- [Quand utiliser](#quand-utiliser)
+- [Installation](#installation)
+- [HTML minimal copiable](#html-minimal)
+- [Tailles et couleurs](#tailles-couleurs)
+- [RGAA et accessibilité](#rgaa)
+- [À éviter](#à-éviter)
+
+<h2 id="quand-utiliser">Quand utiliser</h2>
+
+Utilisez les icônes pour renforcer une action, un statut ou une affordance déjà compréhensible par le texte et la structure. Le design system publie un sprite SVG sans JavaScript dans `dist/icons.svg`.
+
+<h2 id="installation">Installation</h2>
+
+Après `npm run build`, le package expose deux artefacts :
+
+- `dist/design-system.css` pour les classes `.icon`, tailles et couleurs.
+- `dist/icons.svg` pour le sprite des symboles.
+
+Dans Storybook, le sprite est copié dans `public/icons.svg` par le script `build:design-system`.
+
+<h2 id="html-minimal">HTML minimal copiable</h2>
+
+```html
+<svg class="icon icon-base" aria-hidden="true" role="presentation">
+  <use href="/icons.svg#activity"></use>
+</svg>
+```
+
+Pour un projet consommateur, adaptez `href` au chemin de publication de votre bundle :
+
+```html
+<svg class="icon icon-base" aria-hidden="true" role="presentation">
+  <use href="/node_modules/foxxhy-mono/dist/icons.svg#activity"></use>
+</svg>
+```
+
+<h2 id="tailles-couleurs">Tailles et couleurs</h2>
+
+Les tailles suivent la typographie : `.icon-xs`, `.icon-sm`, `.icon-base`, `.icon-lg`, `.icon-xl`, `.icon-2xl`.
+
+Les couleurs héritent de `currentColor` par défaut. Pour les usages fréquents, utilisez les classes sémantiques : `.icon-color-neutral`, `.icon-color-heading`, `.icon-color-primary`, `.icon-color-success`, `.icon-color-warning`, `.icon-color-danger`, `.icon-color-info`.
+
+```html
+<svg class="icon icon-lg icon-color-success" aria-hidden="true" role="presentation">
+  <use href="/icons.svg#circle-check"></use>
+</svg>
+```
+
+<h2 id="rgaa">RGAA et accessibilité</h2>
+
+- Icône décorative : utiliser `aria-hidden="true"` et `role="presentation"`.
+- Icône informative sans texte visible : utiliser `role="img"` avec `aria-label` ou un `<title>`.
+- Ne pas transmettre une information uniquement par l’icône ou la couleur.
+- Dans un bouton icône seul, le bouton porte le nom accessible (`aria-label`), pas l’icône.
+
+```html
+<button class="button button-icon-only" type="button" aria-label="Fermer">
+  <svg class="icon icon-base" aria-hidden="true" role="presentation">
+    <use href="/icons.svg#x"></use>
+  </svg>
+</button>
+```
+
+<h2 id="à-éviter">À éviter</h2>
+
+- Importer le composant React expérimental de `to reuse/icon` dans une application consommatrice.
+- Copier des chemins SVG inline dans chaque composant.
+- Créer des classes de couleur qui référencent des tokens inexistants.

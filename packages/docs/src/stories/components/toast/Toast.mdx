@@ -20,9 +20,17 @@ Composant de la famille **Feedback**. Utilisez les classes du bundle `dist/desig
 
 ```html
 <div class="toast toast-success" role="status" aria-live="polite">
-  <span class="toast-icon" aria-hidden="true">✓</span>
+  <span class="toast-icon" aria-hidden="true">
+    <svg class="icon icon-lg" aria-hidden="true" role="presentation">
+      <use href="/icons.svg#circle-check"></use>
+    </svg>
+  </span>
   <div class="toast-content"><p class="toast-title">Enregistré</p><p class="toast-message">Vos changements sont sauvegardés.</p></div>
-  <button class="toast-close" aria-label="Fermer la notification">×</button>
+  <button class="toast-close" aria-label="Fermer la notification">
+    <svg class="icon icon-base" aria-hidden="true" role="presentation">
+      <use href="/icons.svg#x"></use>
+    </svg>
+  </button>
 </div>
 ```
 

@@ -29,8 +29,9 @@
   ],
   "scripts": {
     "publish": "npm run lint-fix && npm run build",
-    "build": "sass src/index.scss dist/design-system.css --load-path=src --style=compressed --no-source-map",
-    "dev": "sass --watch src/index.scss dist/design-system.css --load-path=src --style=expanded --source-map",
+    "build": "npm run build:icons && sass src/index.scss dist/design-system.css --load-path=src --style=compressed --no-source-map",
+    "build:icons": "node scripts/generate-icons-sprite.mjs",
+    "dev": "npm run build:icons && sass --watch src/index.scss dist/design-system.css --load-path=src --style=expanded --source-map",
     "lint": "stylelint \"src/**/*.scss\"",
     "lint-fix": "stylelint \"src/**/*.scss\" --fix"
   },

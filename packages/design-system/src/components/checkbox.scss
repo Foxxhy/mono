@@ -32,8 +32,8 @@
 
 .checkbox:focus-visible {
     outline: none;
-    border-color: var(--color-info-500);
-    box-shadow: 0 0 0 3px rgb(59 130 246 / 25%);
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-focus) 25%, transparent);
 }
 
 .checkbox:checked {

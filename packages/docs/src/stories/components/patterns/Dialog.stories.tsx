@@ -25,7 +25,11 @@ export const Variations: Story = {
         <div className="modal-container modal-md" role="dialog" aria-modal="true" aria-labelledby="story-dialog-title">
           <header className="modal-header">
             <h2 id="story-dialog-title" className="modal-title">Structure custom stylée</h2>
-            <button className="modal-close" type="button" aria-label="Fermer">×</button>
+            <button className="modal-close" type="button" aria-label="Fermer">
+              <svg className="icon icon-base" aria-hidden="true" role="presentation">
+                <use href="/icons.svg#x" />
+              </svg>
+            </button>
           </header>
           <div className="modal-body">
             <p className="body-md">Les classes modal stylent l’overlay, mais le comportement accessible reste à implémenter.</p>
